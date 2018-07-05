@@ -1,0 +1,35 @@
+#crear proyecto
+php composer create-project laravel/laravel mi-proyecto
+
+#iniciar servidordel proyecto
+php artisan serve
+
+#hacer test del proyecto
+(feature/exampleTest.php) -> se usa para hacer pruebas http y ver si hay errores
+(unit/exampleTest.php) -> lo mismo pro para hacer pruebas de clases
+codigo:
+alias t=vendor/bin/phpunit
+
+#si queremos crear una nueva clase de pruebas
+php artisan make:test UsersModuleTest
+
+#crear controladores 
+php artisan make:controller UserController
+
+#crear migracion
+php artisan make:migration "nombre"
+
+#crear migraciones
+php artisan migrate
+
+#si se agrega una tabla en una migracion ya creada entonces:
+php artisan migrate:reset /7 esto elimina todo el contenido en las tablas de la bd incluyendo tablas
+php artisan migrate // ahora se agregarian los nuevos campos para la tabla
+
+#si se edita estructura de campo de la tabla por ejemplo disminuir la cantidad e caracteres:
+php artisan migrate:refresh  //comando destructivo con datos, ejecuta dawn y luego up en las migraciones
+
+#desace ultima migracion ejecutada
+php artisan migrate:rollback
+
+

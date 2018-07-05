@@ -17,7 +17,8 @@ class UsersModuleTest extends TestCase
     {
         $this->get('/barberos')
         	 ->assertStatus(200)
-        	 ->assertSee('seccion barberos');
+        	 ->assertSee('jaime')
+             ->assertSee('oscar');
     }
 
     public function test_id_barbero()
