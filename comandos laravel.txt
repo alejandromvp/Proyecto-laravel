@@ -18,6 +18,8 @@ php artisan make:controller UserController
 
 #crear migracion
 php artisan make:migration "nombre"
+si le agrego la convension --create="nombre_tabla" nos agrega un codigo que nos facilita la creacion de la tabla y la eliminacion de la misma
+php artisan make:migration new_usuarios --create=usuarios
 
 #crear migraciones
 php artisan migrate
@@ -25,11 +27,26 @@ php artisan migrate
 #si se agrega una tabla en una migracion ya creada entonces:
 php artisan migrate:reset /7 esto elimina todo el contenido en las tablas de la bd incluyendo tablas
 php artisan migrate // ahora se agregarian los nuevos campos para la tabla
+$table->dropColumn('profession'); //agregar tabla dentro de una clase
+$table->foreign('profession_id')-references('id')->on('professions'); // para clave foranea
 
 #si se edita estructura de campo de la tabla por ejemplo disminuir la cantidad e caracteres:
 php artisan migrate:refresh  //comando destructivo con datos, ejecuta dawn y luego up en las migraciones
+php artisan migrate:fresh// elimina todas als tablas incluyendo migrations
 
 #desace ultima migracion ejecutada
 php artisan migrate:rollback
+
+
+#------------------------------------------SEEDERS-----------------------------------------------------
+use Illuminate\Support\Facades\DB; //agregamosesto al inicio del archivo para utilizar DB::
+php artisan make:seeder "nombre seeder" // clase sobre la cual ingresara datos a x tabla
+php artisan db:seed  #con esto ejecutamos la clase DatabaseSeeder y se ingresan los datos
+DB::table('nombre_tabla')->truncate(); // vacia la tabla, linea de codigo
+DB::statement('SET FOREIGN_KEY_CHECKS = 0;'); // para que las fk no molesten al vaciar tabla
+
+php artisan migrate:fress --seed // se renueva todo y ademas se agregan los insert
+
+
 
 
