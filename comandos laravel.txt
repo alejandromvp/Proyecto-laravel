@@ -1,3 +1,5 @@
+
+
 #crear proyecto
 php composer create-project laravel/laravel mi-proyecto
 
@@ -46,6 +48,37 @@ DB::table('nombre_tabla')->truncate(); // vacia la tabla, linea de codigo
 DB::statement('SET FOREIGN_KEY_CHECKS = 0;'); // para que las fk no molesten al vaciar tabla
 
 php artisan migrate:fress --seed // se renueva todo y ademas se agregan los insert
+
+#----------------------------------------modelos(eloquent)-----------------------------------------------
+php artisan make:model Profession
+se importa en la clase seeder que deseamos usar: use App\Models\Profession;
+luego podriamos ingresar datos:
+Profession::create([
+    		'title' => 'profesion agregado con modelo eloquent'
+    	]); 
+
+#
+
+#--------------------------------------tinker------------------------------------------------------
+es una consola en la cual podemos hacer peticiones sin usar el servidor y hacer pruebas
+php artisan tinker //para usarla
+importamos el modelo a usar:
+use App\Models\Profession;
+Profession::all() //llama a todos los datos de la tabla indicada
+Profession->last()
+Profession->random()
+
+#tambien puedo editar datos de tablas de la bd
+$user = $users->first();
+$user->name; // veo el nombre
+$user->name = 'alejandro'; // le cambio el nombre
+$user->save(); // mientras no ejecute save no se guardaran los cambios
+
+----------------------------------------factories--------------------------------------------------
+sirve para crear datos aleatorios segun el modelo solicitado
+php artisan make:factory Profession;
+php artisan make:factory "nombre_factory" --model="nombre Modelo";
+php artisan migrate:fress --seed --factory
 
 
 
