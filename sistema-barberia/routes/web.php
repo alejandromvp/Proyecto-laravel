@@ -20,7 +20,7 @@ Route::get('/', function () {
 //});
 Route::get('/barberos', 'UserController@index');
 
-Route::get('/detalle_barbero/{id}','UserController@show')
+Route::get('/barberos/{id}','UserController@show')
 	   //http://127.0.0.1:8000/detalle_barbero/5 //url para forma1 y 2
 	   //return "barbero con id : ".$id; //forma2
 	   //http://127.0.0.1:8000/detalle_barbero?id=10 //forma3

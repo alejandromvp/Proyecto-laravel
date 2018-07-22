@@ -22,6 +22,7 @@ class UserSeeder extends Seeder
 
     	$profession_ORM = Profession::where(['title' => 'desarrollador back-end'])->first();
 
+        //con eloquent
     	User::create([
         	'name' => 'Alejandrxxxx',
         	'email' => 'ale@gmail.com',
@@ -29,6 +30,7 @@ class UserSeeder extends Seeder
         	'profession_id' => $profession_ORM->id,
         ]);
 
+        //insert con la clase DB
         DB::table('users')->insert([
         	'name' => 'Alejandrooo',
         	'email' => 'alee@gmail.com',
@@ -36,9 +38,18 @@ class UserSeeder extends Seeder
         	'profession_id' => $profession->id,
         ]);
 
+        factory(User::class)->create([
+            'name' => 'Joel',
+        ]);
+        factory(User::class)->create([
+            'name' => 'Ellie',
+        ]);
+
+        //insert de 5 valores aleatorios con factory
          factory(User::class, 5)->create();
 
-         factory(User::class,5)->create([
+         //insert de 2 user pero con profesion definida
+         factory(User::class,2)->create([
             'profession_id' => $profession->id
 ]);
     }
