@@ -27,7 +27,8 @@ class UserController extends Controller
 
     public function show($id)
     {
-    	return view('users.show', compact('id')); // con compact es mas facil pasar variable por parametro
+    	$user = User::find($id);
+    	return view('users.show', compact('user')); // con compact es mas facil pasar variable por parametro
     }
 
     public function create($id)

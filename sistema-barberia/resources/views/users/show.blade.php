@@ -6,7 +6,11 @@
 @endsection
 
 @section('content') 
-	<h1> Usuario #{{ $id }}</h1>
+	<h1> Usuario #{{ $user->id }}</h1>
 
-    Mostrando detalles del usuario: {{ $id }}
+    <p>Nombre del usuario: {{$user -> name}}</p>
+    <p>Correo electronico: {{$user -> email}}</p>
+    <p>Nombre del usuario: {{$user -> created_at}}</p>
+
+    <h2><a href="{{ url()->previous() }}">Regresar</a></h2>
 @endsection

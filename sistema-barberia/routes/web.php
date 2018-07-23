@@ -18,15 +18,17 @@ Route::get('/', function () {
 //Route::get('/barberos', function(){
 //	return "seccion barberos";
 //});
-Route::get('/barberos', 'UserController@index');
+Route::get('/barberos', 'UserController@index')
+->name('users.index');
 
 Route::get('/barberos/{id}','UserController@show')
 	   //http://127.0.0.1:8000/detalle_barbero/5 //url para forma1 y 2
 	   //return "barbero con id : ".$id; //forma2
 	   //http://127.0.0.1:8000/detalle_barbero?id=10 //forma3
 	   //return "barbero con id : ".$_GET['id']; //forma3
-->where ('id', '[0-9]+'); //se coloca condicional numeral para no confundir con ruta de abajo
+->where ('id', '[0-9]+') //se coloca condicional numeral para no confundir con ruta de abajo
+->name('users.show');
 
-Route::get('/detalle_barbero/nuevo', 'UserController@create');
+Route::get('/detalle_barbero/nuevo', 'UserController@create')->name('users.create');
 
 Route::get('/saludos/{nick}/{apellido?}','WelcomeUserController@index');

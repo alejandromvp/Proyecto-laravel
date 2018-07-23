@@ -80,6 +80,13 @@ php artisan make:factory Profession;
 php artisan make:factory "nombre_factory" --model="nombre Modelo";
 php artisan migrate:fress --seed --factory
 
+----------------------------------------generar urls-----------------------------------------------
+<a href="{{ url("/usuarios/{$user->id}") }}">Ver detalles</a>
+<a href="{{ url()->previous() }}">Regresar</a>
+<a href="{{ action('UserController@index') }}">Regresar al listado de usuarios</a>	
+<a href="{{ action('UserController@show', ['id' => $user->id]) }}">Ver detalles</a>
+<a href="{{ route('users.show', ['id' => $user->id]) }}">Ver detalles</a>
+
 
 
 
