@@ -28,6 +28,12 @@ class UserController extends Controller
     public function show($id)
     {
     	$user = User::find($id);
+
+    	if($user == null){
+    		//return view('errors.404');
+    		return response()->view('errors.404',[], 404);
+    	}
+
     	return view('users.show', compact('user')); // con compact es mas facil pasar variable por parametro
     }
 
