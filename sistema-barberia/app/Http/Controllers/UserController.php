@@ -37,8 +37,20 @@ class UserController extends Controller
     	return view('users.show', compact('user')); // con compact es mas facil pasar variable por parametro
     }
 
-    public function create($id)
+    public function create()
     {
-    	return "este es un barbero nuevo";	
+    	return view('users.create');
+    }
+
+     public function store()
+    {
+    	$data = request()->all();
+        User::create([
+           'name' => $data['name'],
+           'email' => $data['email'],
+           'password' => bcrypt($data['password'])
+        ]);	
+
+        return redirect()->route('users.index');
     }
 }

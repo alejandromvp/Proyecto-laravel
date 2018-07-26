@@ -87,6 +87,8 @@ php artisan migrate:fress --seed --factory
 <a href="{{ action('UserController@show', ['id' => $user->id]) }}">Ver detalles</a>
 <a href="{{ route('users.show', ['id' => $user->id]) }}">Ver detalles</a>
 
+-----------------------------------------vertodaas las rutas en consola-------------------------------
+php artisan route:list
 
 
 

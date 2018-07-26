@@ -29,6 +29,8 @@ Route::get('/barberos/{id}','UserController@show')
 ->where ('id', '[0-9]+') //se coloca condicional numeral para no confundir con ruta de abajo
 ->name('users.show');
 
-Route::get('/detalle_barbero/nuevo', 'UserController@create')->name('users.create');
+Route::get('/barberos/nuevo', 'UserController@create')->name('users.create');
+
+Route::post('/barberos', 'UserController@store');
 
 Route::get('/saludos/{nick}/{apellido?}','WelcomeUserController@index');

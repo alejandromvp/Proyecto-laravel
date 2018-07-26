@@ -16,10 +16,10 @@
 					<a href="{{ route('users.show', ['id' => $user->id]) }}">Ver detalles</a>
            		</li>
        		@empty
-       			<li>No hay usuarios registrados.</li>	
+       			<li>No hay usuarios registrados.</li>
 			@endforelse    		
 		</ul>
-
+		<a href="{{ route('users.create')}}">Crear Usuario</a>	
     @endsection
 
     @section('sidebar')
