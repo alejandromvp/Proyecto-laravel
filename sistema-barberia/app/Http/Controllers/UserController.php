@@ -44,7 +44,17 @@ class UserController extends Controller
 
      public function store()
     {
-    	$data = request()->all();
+    	//return redirect('usuarios/nuevo')->withInput();//para no perder los datos al resetear pagina del form
+    	//$data = request()->all();
+    	 $data = request()->validate([
+            'name' => 'required',
+            'email' => ['required', 'email', 'unique:users,email'],//unique tiene 2 parametros users que es la tabla, y email el campo donde queremos buscar
+            'password' => 'required',
+        ], [
+            'name.required' => 'El campo nombre es obligatorio',
+            'password.required' => 'El campo password es obligatorio'
+        ]);
+
         User::create([
            'name' => $data['name'],
            'email' => $data['email'],
