@@ -14,12 +14,13 @@
 					<!-- <a href="{{ url('/barberos/'.$user->id) }}">Ver detalles</a> -->
 					<!-- <a href="{{ action('UserController@show', ['id' => $user->id]) }}">Ver detalles</a> -->
 					<a href="{{ route('users.show', ['id' => $user->id]) }}">Ver detalles</a>
+					<a href="{{ action('UserController@edit', ['user' => $user])}}">editar</a>
            		</li>
        		@empty
        			<li>No hay usuarios registrados.</li>
 			@endforelse    		
 		</ul>
-		<a href="{{ route('users.create')}}">Crear Usuario</a>	
+		<a href="{{ route('users.create')}}">Crear Usuario</a>
     @endsection
 
     @section('sidebar')

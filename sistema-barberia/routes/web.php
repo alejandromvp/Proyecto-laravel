@@ -33,4 +33,8 @@ Route::get('/barberos/nuevo', 'UserController@create')->name('users.create');
 
 Route::post('/barberos', 'UserController@store');
 
+Route::get('/barberos/{user}/editar', 'UserController@edit')->name('users.edit');
+Route::put('/barberos/{user}', 'UserController@update');
+
+
 Route::get('/saludos/{nick}/{apellido?}','WelcomeUserController@index');

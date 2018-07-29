@@ -19,19 +19,20 @@
                 </div>
 	@endif
 
-  	<form method="POST" action="{{ url("/barberos")}}">
+  	<form method="POST" action="{{ url("barberos/{$user->id}")}}">
+      {{method_field('PUT')}}
   		{{csrf_field()}}
 
 		<label for="name">Nombre:</label>
-  		<input type="text" name="name" id="name" value="{{ old('name')}}"><br>
+  		<input type="text" name="name" id="name" value="{{ old('name', $user->name)}}"><br>
 
 		<label for="email">Correo Electronico</label>
-  		<input type="email" name="email" id="email" value="{{ old('email')}}"><br>
+  		<input type="email" name="email" id="email" value="{{ old('email',$user->email)}}"><br>
 
 		<label for="password"> password</label>
   		<input type="password" name="password" id="password" value="{{ old('password')}}"><br>
 
-		<button type="submit">Crear Usuario</button>  		
+		<button type="submit">Actualizar usuario</button>  		
   	</form>
 
     <!-- <h2><a href="{{ url()->previous() }}">Regresar</a></h2> -->

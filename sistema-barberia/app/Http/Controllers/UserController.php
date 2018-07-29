@@ -63,4 +63,31 @@ class UserController extends Controller
 
         return redirect()->route('users.index');
     }
+
+    public function edit(User $user)
+    {
+    	return view('users.edit', ['user' => $user]);
+    }
+
+    public function update(User $user){
+
+    	 $data = request()->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,'.$user->id,//unique tiene 2 parametros users que es la tabla, y email el campo donde queremos buscar
+            //'email' => ['required', 'email', Rule::unique('users')->ignore($user->id)],
+            'password' => '',
+        ], [
+            'name.required' => 'El campo nombre es obligatorio',
+        ]);
+
+    	 if($data['password'] != null){
+    	 	$data['password'] = bcrypt($data['password']);
+    	 } else{
+    	 	unset($data['password']);
+    	 }
+
+    	$user->update($data);
+
+    	return redirect()->action('UserController@show', ['id' => $user]);
+    }
 }

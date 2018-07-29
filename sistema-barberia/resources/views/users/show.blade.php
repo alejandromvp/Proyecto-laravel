@@ -12,5 +12,5 @@
     <p>Correo electronico: {{$user -> email}}</p>
     <p>Nombre del usuario: {{$user -> created_at}}</p>
 
-    <h2><a href="{{ url()->previous() }}">Regresar</a></h2>
+    <h2><a href="{{ route('users.index')}}">Regresar a listado usuarios</a></h2>
 @endsection
