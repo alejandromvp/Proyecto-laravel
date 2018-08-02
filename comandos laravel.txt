@@ -89,6 +89,8 @@ php artisan migrate:fress --seed --factory
 
 -----------------------------------------vertodaas las rutas en consola-------------------------------
 php artisan route:list
+------------------------------------------------------------------------------------------------------
+php artisan key:generate
 
 
 
