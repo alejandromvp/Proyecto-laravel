@@ -51,6 +51,7 @@ php artisan migrate:fress --seed // se renueva todo y ademas se agregan los inse
 
 #----------------------------------------modelos(eloquent)-----------------------------------------------
 php artisan make:model Profession
+php artisan make:controller MessagesController --resource //para crear modelos con funciones
 se importa en la clase seeder que deseamos usar: use App\Models\Profession;
 luego podriamos ingresar datos:
 Profession::create([
