@@ -96,5 +96,9 @@ php artisan key:generate
 php artisan make:auth --force //esta opcion sobreescribe las rutas en caso de tenerlas creadas
 php artisan make:auth --viewa //esta opcion crea las vistas en caso de no tenerlas creadas
 
+---------------------------------------ejecutar sass--------------------------------------------------
+npm run dev //para compliar nuestro archivo sass
+npm run watch // cuando guardamos se compila sass automaticamente
+
 
 
