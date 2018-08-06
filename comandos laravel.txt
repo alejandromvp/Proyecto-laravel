@@ -99,6 +99,9 @@ php artisan make:auth --viewa //esta opcion crea las vistas en caso de no tenerl
 ---------------------------------------ejecutar sass--------------------------------------------------
 npm run dev //para compliar nuestro archivo sass
 npm run watch // cuando guardamos se compila sass automaticamente
+---------------------------------------paquetes sublime-------------------------------------------------
+boostrap 3 snipet // para poner structuras rapido de boostrap con clases
+laravel blade // para que sublimne reconosca codigo blade
 
 
 
