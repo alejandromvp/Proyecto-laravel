@@ -103,5 +103,30 @@ npm run watch // cuando guardamos se compila sass automaticamente
 boostrap 3 snipet // para poner structuras rapido de boostrap con clases
 laravel blade // para que sublimne reconosca codigo blade
 
+----------------------------------arreglo seeder-----------------------------------------------------
+$role = [
+               [
+                'id_propiedad' => 'id_propiedad1',
+        	    'desc_propiedad' => 'descripcion propiedad 1',
+               ],
+               [
+                'id_propiedad' => 'id propiedad2',
+        	    'desc_propiedad' => 'descripcion propiedad 2',
+               ],
+               [
+                'id_propiedad' => 'id propiedad3',
+        	    'desc_propiedad' => 'descripcion propiedad 3',
+               ],
+               [
+                'id_propiedad' => 'id propiedad 4',
+        	    'desc_propiedad' => 'descripcion propiedad 4',
+               ],
+               [
+                'id_propiedad' => 'id propiedad 5',
+        	    'desc_propiedad' => 'descripcion propiedad 5',
+               ]
+        ];
+        foreach ($role as $key => $value) SgosPropiedades::create($value);
+
 
 
